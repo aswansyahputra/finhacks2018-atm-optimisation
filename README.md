@@ -1,17 +1,3 @@
----
-title: "ATM Cash Optimisation"
-author: "Sensolution.ID"
-date: "11 October 2018"
-output: 
-  html_document: 
-    keep_md: yes
-    toc: yes
-editor_options: 
-  chunk_output_type: console
----
-
-
-
 # Executive summary
 The main goal set in this activity was to forecast the cash withdrawals in certain ATM machines at certain time period using set of historical dataset. During the pre-processing, quite number of variables ware omitted while two new variables were introduced, i.e. paydays and weekend as regressor. Fast Additive Switching of Seasonality, Trend and Exogenous Regressors (FASSTER) model was used to link the available variable and forecast the withdrawals. In this report, we present the steps which we followed from data cleaning, wrangling, forecasting, valiadation, and measuring model performance. The performance metrics show that the model has a quite good predictive properties. Unfortunately, for some reasons that we yet failed to unreveal, the scaling to the full dataset could not be performed. An error was persistly popped up eventough we have tried to thoroughly debug it. We suspect that by a slim chance that it was occured since the fasster package (that we used for building the model) is still in active development phase. Thus, we could not supplement the forecasting on the real testing dataset provided by Finhacks.
 
