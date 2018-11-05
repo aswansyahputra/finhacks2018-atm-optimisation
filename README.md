@@ -139,7 +139,7 @@ ggplot(cln_training, aes(x = withdrawals)) +
   labs(title = "The distribution of withdrawals is tend to be left-skewed")
 ```
 
-<img src="ATM_report_2_files/figure-html/histogram-1.png" width="80%" style="display: block; margin: auto;" />
+<img src="figures/histogram-1.png" width="80%" style="display: block; margin: auto;" />
 
 However, the figure shows that the distribution of withdrawals is left-skewed. A small number of high withdrawals in observation will make it harder to forecast the smaller withdrawals. Therefore, we applied square-root transformation to treat the data better while keeping the order in values intact (note that square-root is a monotonic transformation). We did not use logarithmic transformation as it will introduce infinite values in dataset. The histogram of the transformed withdrawals values is illustrated in following figure.
 
@@ -155,7 +155,7 @@ ggplot(cln_training, aes(x = withdrawals)) +
   )
 ```
 
-<img src="ATM_report_2_files/figure-html/trans-histogram-1.png" width="80%" style="display: block; margin: auto;" />
+<img src="figures/trans-histogram-1.png" width="80%" style="display: block; margin: auto;" />
 
 It is shown that after the tranformation the distribution of withdrawals became better. A quite centered bell-shaped distribution is obtained eventough a small number of high withdrawals still a little bit skews the histogram. Therefore, we introduced square-root tranformation on the training dataset and used sqrt_withdrawals for analysis except mentioned otherwise.
 
@@ -401,7 +401,7 @@ n_forecast %>%
   )
 ```
 
-<img src="ATM_report_2_files/figure-html/unnamed-chunk-12-1.png" width="80%" style="display: block; margin: auto;" />
+<img src="figures/unnamed-chunk-12-1.png" width="80%" style="display: block; margin: auto;" />
 
 The histogram above shows that the performance of the model is quite good. However, we also notice that the distribution is a little bit right-skewed. Thus we inspected the pattern by plotting the residuals againts the actual sqrt_values.
 
@@ -418,7 +418,7 @@ n_forecast %>%
   )
 ```
 
-<img src="ATM_report_2_files/figure-html/unnamed-chunk-13-1.png" width="80%" style="display: block; margin: auto;" />
+<img src="figures/unnamed-chunk-13-1.png" width="80%" style="display: block; margin: auto;" />
 
 The pattern on the figure shows that when the sqrt_withdrawals are small, roughly below 5000, the model tends to overestimate the actual values. However, the general pattern is still proved that the residuals are distributed around zero. Finally, we calculated the score of the model if we used cut-off of 10% to tolerate the error rate. The final score will lies between 0 to 100, the closer the score to 100 the better the model is.
 
